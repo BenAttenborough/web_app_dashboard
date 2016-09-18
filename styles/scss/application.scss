@@ -1,0 +1,31 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:	Web App Dashboard
+Version:	1.0
+Author: 	@WebDesignerBen
+URI:		https://github.com/BenAttenborough/web_app_dashboard
+
+--------------------------------------------------------------------
+
+[Table of Contents]
+
+===GLOBAL
+===TYPOGRAPHY
+===CLEARFIX
+===NAVIGATION
+===LAYOUT
+===MEDIA QUERIES
+===MEDIA TABLET
+===MEDIA DESKTOP
+
+Note: Project employs mobile-first philosophy, main styles are for
+mobile then views are progressively enhanced up to tablet and
+desktop
+
+-------------------------------------------------------------------*/
+
+@import 'base/manifest';
+@import 'helpers/manifest';
+@import 'layout/manifest';
+@import 'components/manifest';
