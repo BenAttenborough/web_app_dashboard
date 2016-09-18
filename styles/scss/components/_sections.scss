@@ -1,0 +1,36 @@
+body, html{
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: $bg-color;
+}
+
+#header-bar {
+  width: 100%;
+  height: 5em;
+  padding: 1em;
+  background-color: $element-light;
+  color: white;
+}
+
+#nav-bar {
+  display: block;
+  float: left;
+  width: 10%;
+  height: 100%;
+  background-color: $element-dark;
+  color: white;
+  text-align: center;
+}
+
+.content-container {
+  display: block;
+  float: left;
+  height: 100%;
+  width: 90%;
+  margin-top: 2em;
+  padding: 1em;
+  background-color: red;
+}
