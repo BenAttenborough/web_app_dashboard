@@ -32,5 +32,17 @@ body {
   width: 90%;
   margin-top: 2em;
   padding: 1em;
-  background-color: red;
+  background-color: #FFFFFF;
+  border-top: solid 1px gray;
+  position: relative;
+}
+
+.tab {
+  height: 2em;
+  position: absolute;
+  top: -2em;
+  left: 0em;
+  border-right: solid 1px gray;
+  background-color: #ffffff;
+  padding: 0.5em;
 }
