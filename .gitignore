@@ -5,3 +5,5 @@ assets
 assets/
 .idea
 .idea/
+styles/.sass-cache
+styles/.sass-cache/
