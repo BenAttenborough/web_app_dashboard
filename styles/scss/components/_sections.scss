@@ -1,4 +1,4 @@
-body, html{
+body, html {
   height: 100%;
   width: 100%;
 }
@@ -46,4 +46,22 @@ body {
   border-right: solid 1px gray;
   background-color: #ffffff;
   padding: 0.5em;
+}
+
+.alert {
+  background-color: $element-light;
+  color: #fff;
+  padding: 1em;
+  border-radius: 0.25em;
+}
+
+.alert-content {
+  width: 90%;
+  float: left;
+}
+
+.alert-dismiss {
+  width: 10%;
+  float: right;
+  padding: 0;
 }
