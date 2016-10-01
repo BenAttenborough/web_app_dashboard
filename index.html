@@ -9,7 +9,16 @@
 
 <body>
 <div id="header-bar">
-    <p>yourapp</p>
+    <div class="header-flex">
+        <div class="logo">
+            <p>yourapp</p>
+        </div>
+        <div class="status">
+            <img src="res/img/icon-bell.svg" alt="messages" class="header-icon">
+            <img src="res/img/avatar.jpg" alt="Your profile" class="header-icon avatar">
+            <div class="name">Ben Attenborough</div>
+        </div>
+    </div>
 </div>
 <div id="nav-bar">
     <p><img src="res/img/icon-dashboard.svg" alt="Dashboard link" class="nav-icon"></p>
@@ -20,9 +29,14 @@
 <div class="content-container">
     <div class="tab">Dashboard</div>
     <div class="alert clearfix">
-        <div class="alert-content">Alert: Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem</div>
-        <button id="alert-dismiss">X</button>
+        <div class="alert-content">Alert: Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum
+            lorem
+        </div>
+        <div class="alert-buttons">
+            <button id="alert-dismiss">X</button>
+        </div>
     </div>
+    <canvas id="myChart" width="400" height="100"></canvas>
 </div>
 
 <header role="banner">
@@ -38,6 +52,7 @@
 
 </body>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
 <script type="text/javascript" src="js/application.js"></script>
 
 </html>

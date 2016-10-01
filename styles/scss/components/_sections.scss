@@ -60,8 +60,17 @@ body {
   float: left;
 }
 
-#alert-dismiss {
+.alert-buttons {
   width: 10%;
   float: right;
+  //background-color: red;
+}
+
+#alert-dismiss {
   padding: 0;
+  border: 0;
+  background-color: transparent;
+  float: right;
+  width: 2em;
+  font-weight: bold;
 }
