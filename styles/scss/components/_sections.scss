@@ -24,6 +24,9 @@ body {
   background-color: $element-dark;
   color: white;
   text-align: center;
+  @media screen and (min-width: $desktop) {
+    width: 5%;
+  }
 }
 
 .content-container {
@@ -31,21 +34,24 @@ body {
   float: left;
   height: 100%;
   width: 90%;
-  margin-top: 2em;
+  margin-top: 5em;
   padding: 1em;
   background-color: #FFFFFF;
   border-top: solid 1px gray;
   position: relative;
+  @media screen and (min-width: $desktop) {
+    width: 95%;
+  }
 }
 
 .tab {
-  height: 2em;
+  height: 5em;
   position: absolute;
-  top: -2em;
+  top: -5em;
   left: 0em;
   border-right: solid 1px gray;
   background-color: #ffffff;
-  padding: 0.5em;
+  padding: 0 2em 0 1em;
 }
 
 .alert {
@@ -58,6 +64,9 @@ body {
 .alert-content {
   width: 90%;
   float: left;
+  p {
+    margin: 0;
+  }
 }
 
 .alert-buttons {
