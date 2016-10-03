@@ -60,7 +60,10 @@ var visitorsChart = {
         scales: {
             yAxes: [{}]
         },
-        responsive: true
+        responsive: true,
+        legend: {
+            display: false
+        }
     }
 };
 
@@ -92,7 +95,10 @@ var trafficChart = {
                 }
             }]
         },
-        responsive: true
+        responsive: true,
+        legend: {
+            display: false
+        }
     }
 };
 
@@ -106,7 +112,7 @@ var mobileUsersChart = {
     ctx: document.getElementById("chart-mobile"),
     type: 'doughnut',
     data: {
-        labels: ["Phones", "Tablets", "Descktop"],
+        labels: ["Phones", "Tablets", "Desktop"],
         datasets: [
             {
                 label: "Mobile Users",
@@ -122,7 +128,10 @@ var mobileUsersChart = {
     },
 
     options: {
-        responsive: true
+        responsive: true,
+        legend: {
+            position: 'right'
+        }
     }
 };
 
