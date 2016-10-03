@@ -1,9 +1,26 @@
+.chart-container {
+  padding: 1em;
+  border-bottom: solid 1px #ccc;
+}
+
 .visitors-container {
   margin-top: 1em;
 }
 
+.traffic-container {
+  border-right: solid 1px #ccc;
+}
+
 .traffic-container,
 .mobile-users-container {
-  width: 50%;
-  float: left;
+  @media screen and (min-width: $desktop) {
+    width: 50%;
+    float: left;
+  }
+}
+
+.social-container {
+  @media screen and (min-width: $desktop) {
+    float: left;
+  }
 }

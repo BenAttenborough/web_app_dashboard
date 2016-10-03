@@ -1,0 +1,59 @@
+.social-container {
+  width: 100%;
+}
+
+.social-btn {
+  background-color: $bg-color;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  padding: 1em;
+  margin-bottom: 1em;
+  @media screen and (min-width: $desktop) {
+    float: left;
+    width: 30%;
+  }
+}
+
+.social-btn-img {
+  width: 90px;
+  height: 90px;
+  background-color: $element-light;
+  border-radius: 50%;
+  margin: 0 auto;
+  @media screen and (min-width: $desktop) {
+    float: left;
+  }
+}
+
+.social-btn-img img {
+  width: 50px;
+  margin-top: 25px;
+  margin-left: 22px;
+}
+
+.social-btn-info{
+  @media screen and (min-width: $desktop) {
+    float: left;
+    padding-left: 1em;
+  }
+}
+
+.social-btn-title {
+  margin-top: 1em;
+  font-weight: 700;
+  color: $element-light;
+  text-align: center;
+  @media screen and (min-width: $desktop) {
+    margin-top: 0;
+    text-align: left;
+  }
+}
+
+.social-btn-number {
+  font-weight: 300;
+  font-size: 2.5em;
+  text-align: center;
+  @media screen and (min-width: $desktop) {
+    text-align: left;
+  }
+}

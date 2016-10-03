@@ -34,24 +34,33 @@ body {
   float: left;
   height: 100%;
   width: 90%;
-  margin-top: 5em;
+  margin-top: 3em;
   padding: 1em;
   background-color: #FFFFFF;
-  border-top: solid 1px gray;
+  border-top: solid 1px #ccc;
   position: relative;
   @media screen and (min-width: $desktop) {
     width: 95%;
   }
 }
 
+#content-container-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .tab {
-  height: 5em;
+  height: 3em;
   position: absolute;
-  top: -5em;
+  top: -3em;
   left: 0em;
-  border-right: solid 1px gray;
+  border-right: solid 1px #ccc;
   background-color: #ffffff;
   padding: 0 2em 0 1em;
+  h2 {
+    margin-top: 0.3em;
+    font-weight: normal;
+  }
 }
 
 .alert {

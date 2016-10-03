@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href="styles/styles.css" rel="stylesheet" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <title>Web App Dashboard</title>
@@ -12,7 +12,7 @@
 <div id="header-bar">
     <div class="header-flex">
         <div class="logo">
-            <p>yourapp</p>
+            <p><strong>YOUR</strong>app</p>
         </div>
         <div class="status">
             <img src="res/img/icon-bell.svg" alt="messages" class="header-icon">
@@ -27,35 +27,73 @@
     <p><img src="res/img/icon-visits.svg" alt="Visits link" class="nav-icon"></p>
     <p><img src="res/img/icon-settings.svg" alt="Settings link" class="nav-icon"></p>
 </div>
-<div class="content-container">
+<div class="content-container clearfix">
     <div class="tab"><h2>Dashboard</h2></div>
     <div class="alert clearfix">
-        <div class="alert-content"><p>Alert: Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum
+        <div class="alert-content"><p>Alert: Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem
+            Ipsum
             lorem</p>
         </div>
         <div class="alert-buttons">
             <button id="alert-dismiss">X</button>
         </div>
     </div>
-    <div class="visitors-container">
-        <div class="chart-legend">
-            <p>TRAFFIC</p>
+    <div id="content-container-inner" class="clearfix">
+        <div class="visitors-container chart-container">
+            <div class="chart-legend">
+                <p>TRAFFIC</p>
+            </div>
+            <canvas id="chart-visitors" width="400" height="100"></canvas>
         </div>
-        <canvas id="chart-visitors" width="400" height="100"></canvas>
-    </div>
-    <div class="traffic-container">
-        <div class="chart-legend">
-            <p>DAILY TRAFFIC</p>
+        <div class="traffic-container chart-container">
+            <div class="chart-legend">
+                <p>DAILY TRAFFIC</p>
+            </div>
+            <canvas id="chart-traffic" width="400" height="200"></canvas>
         </div>
-        <canvas id="chart-traffic" width="400" height="200"></canvas>
-    </div>
-    <div class="mobile-users-container">
-        <div class="chart-legend">
-            <p>MOBILE USERS</p>
+        <div class="mobile-users-container chart-container">
+            <div class="chart-legend">
+                <p>MOBILE USERS</p>
+            </div>
+            <canvas id="chart-mobile" width="400" height="200"></canvas>
         </div>
-        <canvas id="chart-mobile" width="400" height="200"></canvas>
-    </div>
 
+        <div class="social-container chart-container">
+            <div class="chart-legend">
+                <p>SOCIAL STATS</p>
+            </div>
+            <div class="grid-container">
+                <div class="social-btn clearfix">
+                    <div class="social-btn-img">
+                        <img src="res/img/icon-twitter.svg" alt="twitter statistics">
+                    </div>
+                    <div class="social-btn-info">
+                        <div class="social-btn-title">Twitter</div>
+                        <div class="social-btn-number">10,345</div>
+                    </div>
+                </div>
+                <div class="social-btn clearfix">
+                    <div class="social-btn-img">
+                        <img src="res/img/icon-facebook.svg" alt="facebook statistics">
+                    </div>
+                    <div class="social-btn-info">
+                        <div class="social-btn-title">Facebook</div>
+                        <div class="social-btn-number">8,739</div>
+                    </div>
+                </div>
+                <div class="social-btn clearfix">
+                    <div class="social-btn-img">
+                        <img src="res/img/icon-google-plus.svg" alt="">
+                    </div>
+                    <div class="social-btn-info">
+                        <div class="social-btn-title">Google+</div>
+                        <div class="social-btn-number">2,530</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <header role="banner">
