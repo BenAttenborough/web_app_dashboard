@@ -209,7 +209,7 @@ function displayNewMembers(count) {
             '</div>' +
             '<div class="member-date"><p>' + users[i].joined + '</p></div>' +
             '</div>';
-        $('#members-container').append(memberItem);
+        $('#member-feed-container').append(memberItem);
     }
 }
 
@@ -249,7 +249,7 @@ function displayRecentActivity(count) {
             '<p class="member-activity-date">' + activityLog[i].date + '</p>' +
             '</div>' +
             '</div>';
-        $('#activity-container').append(memberItem);
+        $('#activity-feed-container').append(memberItem);
     }
 }
 
