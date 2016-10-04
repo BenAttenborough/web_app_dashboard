@@ -178,11 +178,23 @@ var users = [{
 var activityLog = [{
     user: "Victoria Chambers",
     type: "posted",
-    item: "YourApp's SEO Tips"
+    item: "YourApp's SEO Tips",
+    date: "10/04/16"
 },{
     user: "Dawn Wood",
-    type: "commented on",
-    item: "YourApp's SEO Tips"
+    type: "comment",
+    item: "Facebook's Changes for 2016",
+    date: "10/04/16"
+},{
+    user: "Victoria Chambers",
+    type: "comment",
+    item: "Facebook's Changes for 2016",
+    date: "10/04/16"
+},{
+    user: "Dan Oliver",
+    type: "signup",
+    item: "Facebook's Changes for 2016",
+    date: "10/04/16"
 }
 ];
 
@@ -205,16 +217,37 @@ function displayRecentActivity(count) {
     count = count <= activityLog.length ? count : activityLog.length;
 
     var postedIcon = 'res/img/posted.svg';
+    var commentIcon = 'res/img/comment.svg';
+    var signupIcon = 'res/img/signup.svg';
     var activityIcon = '<div class="activity-icon"><img src="' + postedIcon + '"></div>';
 
     for (var i = 0; i <count; i++) {
+        var activityText = '';
+        var activity = activityLog[i].type;
+        switch (activity) {
+            case 'posted':
+                activityText = 'posted ' + activityLog[i].item;
+                activityIcon = '<div class="activity-icon"><img src="' + postedIcon + '"></div>';
+                break;
+            case 'comment':
+                activityText = 'commented on ' + activityLog[i].item;
+                activityIcon = '<div class="activity-icon"><img src="' + commentIcon + '"></div>';
+                break;
+            case 'signup':
+                activityText = 'signed up!';
+                activityIcon = '<div class="activity-icon"><img src="' + signupIcon + '"></div>';
+                break;
+            default:
+                activityText = 'performed an unknown activity';
+        }
+
         var memberItem = '<div class="members-item clearfix">' +
             activityIcon +
             '<div class="member-info">' +
-            '<p class="member-activity">' + activityLog[i].user + ' ' + activityLog[i].type + ' ' + activityLog[i].item + ' </p>' +
-            '<p class="member-activity-date"><a href="mailto:' + users[i].email + '">' + users[i].email + '</a></p>' +
+            //'<p class="member-activity">' + activityLog[i].user + ' ' + activityLog[i].type + ' ' + activityLog[i].item + ' </p>' +
+            '<p class="member-activity">' + activityLog[i].user + ' ' + activityText + '</p>' +
+            '<p class="member-activity-date">' + activityLog[i].date + '</p>' +
             '</div>' +
-            '<div class="member-date"><p>' + users[i].joined + '</p></div>' +
             '</div>';
         $('#activity-container').append(memberItem);
     }
