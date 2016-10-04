@@ -1,0 +1,31 @@
+input[type=checkbox] {
+  visibility: hidden;
+}
+
+.site-form {
+  width: 100%;
+  height: 3em;
+  background-color: $button-bg;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  padding: 0.5em 0.75em;
+}
+
+.textarea {
+  height: 10em;
+}
+
+.submit {
+  background-color: $element-light;
+  color: #fff;
+}
+
+.half {
+  width: 48%;
+  float: left;
+}
+
+.decline {
+  background-color: #cccccc;
+}

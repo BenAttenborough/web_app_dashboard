@@ -109,9 +109,52 @@
         </div>
 
         <div id="message-container" class="chart-container">
-            <div class="chart-legend">
-                <p>MESSAGE USER</p>
-            </div>
+            <form action="index.html" method="POST">
+                <div class="chart-legend">
+                    <p>MESSAGE USER</p>
+                </div>
+                <input type="text"
+                       id="name"
+                       name="user_name"
+                       class="site-form"
+                       placeholder="Search for user">
+                <textarea id="message"
+                          name="message"
+                          class="site-form textarea"
+                          placeholder="Message for user"></textarea>
+                <button type="submit" class="site-form submit">SEND</button>
+            </form>
+        </div>
+
+        <div id="settings-container" class="chart-container">
+            <form action="index.html" method="POST">
+                <div class="chart-legend">
+                    <p>SETTINGS</p>
+                </div>
+                <label class="light" for="email-notifications">Send Email Notifications</label>
+                <input type="checkbox" id="email-notifications" value="on" name="email-notifications">
+                </br>
+                <label class="light" for="public-profile">Set Profile to Public</label>
+                <input type="checkbox" id="public-profile" value="on" name="public-profile">
+                </br>
+                <label for="job">Job role:</label>
+                <select id="job" name="user_job">
+                    <optgroup label="mobile">
+                        <option value="frontend_developer">Frontend developer</option>
+                        <option value="php_developer">php developer</option>
+                        <option value="python_developer">Python developer</option>
+                    </optgroup>
+                    <optgroup label="web">
+                        <option value="frontend_developer">Frontend developer</option>
+                        <option value="php_developer">php developer</option>
+                        <option value="python_developer">Python developer</option>
+                    </optgroup>
+                </select>
+                <div class="grid-container">
+                    <button type="submit" class="site-form submit half">SAVE</button>
+                    <button type="submit" class="site-form submit half decline">CANCEL</button>
+                </div>
+            </form>
         </div>
 
     </div>

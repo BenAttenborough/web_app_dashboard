@@ -92,3 +92,12 @@ body {
   width: 2em;
   font-weight: bold;
 }
+
+#message-container,
+#settings-container {
+  width: 100%;
+  float: left;
+  @media screen and (min-width: $desktop) {
+    width: 50%;
+  }
+}
