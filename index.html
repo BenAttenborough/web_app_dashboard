@@ -131,25 +131,44 @@
                 <div class="chart-legend">
                     <p>SETTINGS</p>
                 </div>
-                <label class="light" for="email-notifications">Send Email Notifications</label>
-                <input type="checkbox" id="email-notifications" value="on" name="email-notifications">
-                </br>
-                <label class="light" for="public-profile">Set Profile to Public</label>
-                <input type="checkbox" id="public-profile" value="on" name="public-profile">
-                </br>
-                <label for="job">Job role:</label>
-                <select id="job" name="user_job">
-                    <optgroup label="mobile">
-                        <option value="frontend_developer">Frontend developer</option>
-                        <option value="php_developer">php developer</option>
-                        <option value="python_developer">Python developer</option>
-                    </optgroup>
-                    <optgroup label="web">
-                        <option value="frontend_developer">Frontend developer</option>
-                        <option value="php_developer">php developer</option>
-                        <option value="python_developer">Python developer</option>
-                    </optgroup>
-                </select>
+                <div class="grid-container align-horizontal clearfix">
+                    <div class="checkbox-label">
+                        <p class="label-left">Send Email Notifications</p>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="email-notifications" value="1" name="email-notifications">
+                        <label for="email-notifications"></label>
+                    </div>
+                </div>
+                <!--<label class="light" for="public-profile">Set Profile to Public</label>-->
+
+
+                <div class="grid-container align-horizontal clearfix">
+                    <div class="checkbox-label">
+                        <p class="label-left">Set Profile to Public</p>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="public-profile" value="1" name="public-profile">
+                        <label for="public-profile"></label>
+                    </div>
+                </div>
+
+                <div class="site-form dropdown">
+                    <label for="timezone">Timezone:</label>
+                    <select id="timezone" name="timezone">
+                        <optgroup label="Timezone">
+                            <option value="UTC-0">UTC-0: AZOST, EGST, GMT, UTC, WET</option>
+                            <option value="UTC-1">UTC-1: BST, CET, DFT, IST, MET, WAT, WEST</option>
+                            <option value="UTC-2">UTC-2: CAT, CEST, EET, HAEC, IST, MEST, SAST, USZ1, WAST</option>
+                            <option value="UTC-3">UTC-3: AST, EAT, EEST, FET, IDT, IOT, MSK, SYOT, TRT</option>
+                            <option value="UTC-3:30">UTC-3:30: IRST</option>
+                            <option value="UTC-4">UTC-4: AMT, AZT, GET, GST, MUT, RET, SAMT, SCT, VOLT</option>
+                            <option value="UTC-4:30">UTC-4:30: AFT, IRDT</option>
+                            <option value="UTC-5">UTC-5: HMT, MAWT, MVT, ORAT, PKT, TFT, TJT, TMT, UZT, YEKT</option>
+                        </optgroup>
+                    </select>
+                </div>
+
                 <div class="grid-container">
                     <button type="submit" class="site-form submit half">SAVE</button>
                     <button type="submit" class="site-form submit half decline">CANCEL</button>

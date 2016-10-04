@@ -1,5 +1,112 @@
-input[type=checkbox] {
+.switch-container {
+  width: 100%;
+}
+
+.checkbox input[type=checkbox] {
   visibility: hidden;
+}
+
+.checkbox {
+  height: 35px;
+  width: 100px;
+  background-color: $element-light;
+  border: solid 2px #ccc;
+  border-radius: 1.5em;
+  position: relative;
+}
+
+.checkbox:before {
+  content: "ON";
+  left: 10px;
+  position: absolute;
+  margin-top: 4px;
+  color: #fff;
+}
+
+.checkbox:after {
+  content: "OFF";
+  right: 10px;
+  position: absolute;
+  margin-top: 4px;
+  color: #fff;
+}
+
+.checkbox label {
+  height: 25px;
+  width: 40px;
+  background-color: #fff;
+  border-radius: 15px;
+  border: solid 2px #ccc;
+  top: 3px;
+  left: 5px;
+  position: absolute;
+  transition: all .5s ease;
+  z-index: 1;
+}
+
+.checkbox input[type=checkbox]:checked + label{
+  left: 50px;
+}
+
+
+
+
+//.checkbox {
+//  width: 120px;
+//  height: 40px;
+//  background: #cccccc;
+//  margin: 20px 1em;
+//  float: left;
+//  border-radius: 50px;
+//  position: relative;
+//}
+
+//.checkbox:before {
+//  content: 'On';
+//  position: absolute;
+//  top: 12px;
+//  left: 13px;
+//  height: 2px;
+//  color: #26ca28;
+//  font-size: 16px;
+//}
+//
+//.checkbox:after {
+//  content: 'Off';
+//  position: absolute;
+//  top: 12px;
+//  left: 84px;
+//  height: 2px;
+//  color: #111;
+//  font-size: 16px;
+//}
+
+//.checkbox label {
+//  display: block;
+//  width: 52px;
+//  height: 22px;
+//  border-radius: 50px;
+//
+//  transition: all .5s ease;
+//  cursor: pointer;
+//  position: absolute;
+//  top: 9px;
+//  z-index: 1;
+//  left: 12px;
+//  background: #ddd;
+//}
+//
+//.checkbox input[type=checkbox]:checked + label {
+//  left: 60px;
+//  background: #26ca28;
+//}
+
+.checkbox-label {
+  width: 50%;
+}
+
+.label-left {
+  float: left;
 }
 
 .site-form {
