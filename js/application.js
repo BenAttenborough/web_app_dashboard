@@ -91,7 +91,7 @@ var trafficChart = {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero: true
                 }
             }]
         },
@@ -140,3 +140,85 @@ var myMobileChart = new Chart(mobileUsersChart.ctx, {
     data: mobileUsersChart.data,
     options: mobileUsersChart.options
 });
+
+var users = [{
+    name: "Victoria Chambers",
+    email: "vicotoria.chambers80@example.com",
+    joined: "10/15/15",
+    activity: {
+        type: "post",
+        item: "YourApp's SEO Tipss"
+    }
+},{
+    name: "Dale Byrd",
+    email: "dale.byrd52@example.com",
+    joined: "10/15/15",
+    activity: {
+        type: "post",
+        item: "YourApp's SEO Tips"
+    }
+},{
+    name: "Dawn Wood",
+    email: "dawn.wood16@example.com",
+    joined: "10/15/15",
+    activity: {
+        type: "post",
+        item: "YourApp's SEO Tipss"
+    }
+},{
+    name: "Dan Oliver",
+    email: "dan.oliver82@example.com",
+    joined: "10/15/15",
+    activity: {
+        type: "post",
+        item: "YourApp's SEO Tipss"
+    }
+}];
+
+var activityLog = [{
+    user: "Victoria Chambers",
+    type: "posted",
+    item: "YourApp's SEO Tips"
+},{
+    user: "Dawn Wood",
+    type: "commented on",
+    item: "YourApp's SEO Tips"
+}
+];
+
+function displayNewMembers(count) {
+    count = count <= users.length ? count : users.length;
+    for (var i = 0; i <count; i++) {
+        var memberItem = '<div class="members-item clearfix">' +
+            '<div class="member-pic"></div>' +
+            '<div class="member-info">' +
+            '<p class="member-name">' + users[i].name + '</p>' +
+            '<p class="member-email"><a href="mailto:' + users[i].email + '">' + users[i].email + '</a></p>' +
+            '</div>' +
+            '<div class="member-date"><p>' + users[i].joined + '</p></div>' +
+            '</div>';
+        $('#members-container').append(memberItem);
+    }
+}
+
+function displayRecentActivity(count) {
+    count = count <= activityLog.length ? count : activityLog.length;
+
+    var postedIcon = 'res/img/posted.svg';
+    var activityIcon = '<div class="activity-icon"><img src="' + postedIcon + '"></div>';
+
+    for (var i = 0; i <count; i++) {
+        var memberItem = '<div class="members-item clearfix">' +
+            activityIcon +
+            '<div class="member-info">' +
+            '<p class="member-activity">' + activityLog[i].user + ' ' + activityLog[i].type + ' ' + activityLog[i].item + ' </p>' +
+            '<p class="member-activity-date"><a href="mailto:' + users[i].email + '">' + users[i].email + '</a></p>' +
+            '</div>' +
+            '<div class="member-date"><p>' + users[i].joined + '</p></div>' +
+            '</div>';
+        $('#activity-container').append(memberItem);
+    }
+}
+
+displayNewMembers(4);
+displayRecentActivity(4);

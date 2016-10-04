@@ -1,5 +1,8 @@
 .social-container {
   width: 100%;
+  @media screen and (min-width: $desktop) {
+    float: left;
+  }
 }
 
 .social-btn {

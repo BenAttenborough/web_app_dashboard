@@ -1,0 +1,69 @@
+.members-list {
+  width: 100%;
+}
+
+.members-item {
+  width:100%;
+  padding-bottom: 1em;
+  border-bottom: solid 1px #ccc;
+  margin-bottom: 1em;
+}
+
+#members-container {
+  width: 100%;
+  @media screen and (min-width: $desktop) {
+    float: left;
+    width: 50%;
+  }
+}
+
+.member-pic,
+.member-info {
+  float: left;
+}
+
+.member-date {
+  float: right;
+  p {
+    margin: 0;
+  }
+}
+
+.member-pic {
+  width: 50px;
+  height: 50px;
+  background-image: url("../res/img/avatar.jpg");
+  background-color: gray;
+  background-origin: content-box;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.member-info {
+  padding-left: 1em;
+  p {
+    margin: 0;
+  }
+}
+
+.member-email {
+  color: $element-light;
+}
+
+#activity-container {
+  width: 100%;
+  @media screen and (min-width: $desktop) {
+    float: left;
+    width: 50%;
+  }
+}
+
+.activity-icon {
+  float: left;
+  width: 50px;
+  height: 50px;
+}
+
+.activity-icon img {
+  width:100%;
+}
