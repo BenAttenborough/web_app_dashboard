@@ -27,3 +27,13 @@
   margin-left: 0.5em;
   float: right;
 }
+
+#notifications,
+#profile {
+  float: left;
+  padding: 0.5em 1em;
+}
+
+#notifications {
+  border-right: solid 1px $element-dark;
+}
