@@ -10,6 +10,50 @@ function dismissAlert() {
     dismissButton.parentNode.style.display = 'none';
 }
 
+function notifcationsClickHandlet() {
+    var notificationButton = $('#notifications');
+    notificationButton.click(showNotifications);
+}
+
+function showNotifications() {
+    console.log("Handler for .click() called.");
+    $('#notifcations-box').toggle();
+
+    //var notificationsBox = '';
+    //notificationsBox = '<div id="notifcations-box"></div>';
+    //notificationButton.append(notificationsBox);
+}
+
+notifcationsClickHandlet();
+
+var notifications = [{
+    title: "New user",
+    message: "Dan Oliver signed up",
+    date: "10/04/16"
+}, {
+    title: "New post",
+    message: "Facebook's Changes for 2016",
+    date: "9/24/16"
+}, {
+    title: "New comment",
+    message: "Dawn Wood commented on Facebook's Changes for 2016",
+    date: "9/15/16"
+}
+];
+
+function setupNotifications() {
+    var note = '';
+    for (var i = 0; i < notifications.length; i++) {
+        note += '<div class="notification">' +
+            '<p>' + notifications[i].title + ' | ' + notifications[i].date + '</p>' +
+            '<p>' + notifications[i].message + '</p>' +
+            '<hr>' +
+            '</div>';
+    }
+    $('#notifcations-box').append(note);
+}
+setupNotifications();
+
 var colorLight = {
     rgb: '116,119,191',
     hex: '#7477BF'
@@ -149,7 +193,7 @@ var users = [{
         type: "post",
         item: "YourApp's SEO Tipss"
     }
-},{
+}, {
     name: "Dale Byrd",
     email: "dale.byrd52@example.com",
     joined: "10/15/15",
@@ -157,7 +201,7 @@ var users = [{
         type: "post",
         item: "YourApp's SEO Tips"
     }
-},{
+}, {
     name: "Dawn Wood",
     email: "dawn.wood16@example.com",
     joined: "10/15/15",
@@ -165,7 +209,7 @@ var users = [{
         type: "post",
         item: "YourApp's SEO Tipss"
     }
-},{
+}, {
     name: "Dan Oliver",
     email: "dan.oliver82@example.com",
     joined: "10/15/15",
@@ -180,17 +224,17 @@ var activityLog = [{
     type: "posted",
     item: "YourApp's SEO Tips",
     date: "10/04/16"
-},{
+}, {
     user: "Dawn Wood",
     type: "comment",
     item: "Facebook's Changes for 2016",
     date: "10/04/16"
-},{
+}, {
     user: "Victoria Chambers",
     type: "comment",
     item: "Facebook's Changes for 2016",
     date: "10/04/16"
-},{
+}, {
     user: "Dan Oliver",
     type: "signup",
     item: "Facebook's Changes for 2016",
@@ -200,7 +244,7 @@ var activityLog = [{
 
 function displayNewMembers(count) {
     count = count <= users.length ? count : users.length;
-    for (var i = 0; i <count; i++) {
+    for (var i = 0; i < count; i++) {
         var memberItem = '<div class="members-item clearfix">' +
             '<div class="member-pic"></div>' +
             '<div class="member-info">' +
@@ -221,7 +265,7 @@ function displayRecentActivity(count) {
     var signupIcon = 'res/img/signup.svg';
     var activityIcon = '<div class="activity-icon"><img src="' + postedIcon + '"></div>';
 
-    for (var i = 0; i <count; i++) {
+    for (var i = 0; i < count; i++) {
         var activityText = '';
         var activity = activityLog[i].type;
         switch (activity) {
@@ -244,7 +288,7 @@ function displayRecentActivity(count) {
         var memberItem = '<div class="members-item clearfix">' +
             activityIcon +
             '<div class="member-info">' +
-            //'<p class="member-activity">' + activityLog[i].user + ' ' + activityLog[i].type + ' ' + activityLog[i].item + ' </p>' +
+                //'<p class="member-activity">' + activityLog[i].user + ' ' + activityLog[i].type + ' ' + activityLog[i].item + ' </p>' +
             '<p class="member-activity">' + activityLog[i].user + ' ' + activityText + '</p>' +
             '<p class="member-activity-date">' + activityLog[i].date + '</p>' +
             '</div>' +

@@ -36,4 +36,33 @@
 
 #notifications {
   border-right: solid 1px $element-dark;
+  position: relative;
+}
+
+#notifcations-box {
+  display: none;
+  width: 400px;
+  //height: 100px;
+  background-color: $element-dark;
+  position: absolute;
+  top: 60px;
+  left: -165px;
+  z-index: 1;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+#notifcations-box p {
+  margin: 0;
+}
+
+#notifcations-box::before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  transform: rotate(45deg);
+  top: -6px;
+  left: 194px;
+  background-color: $element-dark;
 }
