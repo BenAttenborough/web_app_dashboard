@@ -299,3 +299,22 @@ function displayRecentActivity(count) {
 
 displayNewMembers(4);
 displayRecentActivity(4);
+
+var TrafficButton = function (element) {
+    this.element = element;
+    this.name = element.attr('id');
+};
+
+TrafficButton.prototype.addSelectListener = function () {
+    self = this;
+    this.element.click( function() {
+        console.log("Element name: " + self.name);
+    } );
+};
+
+TrafficButton.prototype.init = function () {
+    this.addSelectListener();
+};
+
+var dailyTraffic = new TrafficButton( $('#traffic-daily') );
+dailyTraffic.init();
