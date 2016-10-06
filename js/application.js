@@ -70,6 +70,11 @@ var colorDark = {
     hex: '#4D4C72'
 };
 
+var colorFour = {
+    rgb: '0,153,51',
+    hex: '#009933'
+};
+
 var visitorsChart = {
     ctx: document.getElementById("chart-visitors"),
     type: 'line',
@@ -144,24 +149,23 @@ var myVisitorsChart = new Chart(visitorsChart.ctx, {
     options: visitorsChart.options
 });
 
-//myVisitorsChart.data.datasets[0].data = hourlyData.data;
-//myVisitorsChart.data.labels = hourlyData.labels;
-//myVisitorsChart.update();
-
 var trafficChart = {
     ctx: document.getElementById("chart-traffic"),
     type: 'bar',
     data: {
-        labels: ["S", "M", "T", "W", "T", "F", "S"],
+        labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sun"],
         datasets: [
             {
-                label: "Daily Traffic",
+                label: "This Week's Traffic",
                 backgroundColor: "rgba(" + colorLight.rgb + ",1)",
-                data: [75, 100, 275, 125, 225, 200, 100],
+                data: [75, 100, 275, 125, 225, 200, 100]
+            },{
+                label: "Last Week's Traffic",
+                backgroundColor: "rgba(" + colorMed.rgb + ",1)",
+                data: [45, 112, 234, 134, 125, 231, 98]
             }
         ]
     },
-
     options: {
         scales: {
             yAxes: [{
@@ -187,15 +191,16 @@ var mobileUsersChart = {
     ctx: document.getElementById("chart-mobile"),
     type: 'doughnut',
     data: {
-        labels: ["Phones", "Tablets", "Desktop"],
+        labels: ["Phones", "Phablets", "Tablets", "Desktop"],
         datasets: [
             {
                 label: "Mobile Users",
                 backgroundColor: "rgba(116,119,191,1)",
-                data: [15, 10, 75],
+                data: [15, 6, 10, 69],
                 backgroundColor: [
                     colorLight.hex,
                     colorMed.hex,
+                    colorFour.hex,
                     colorDark.hex
                 ]
             }
