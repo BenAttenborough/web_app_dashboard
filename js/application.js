@@ -159,7 +159,7 @@ var trafficChart = {
                 label: "This Week's Traffic",
                 backgroundColor: "rgba(" + colorLight.rgb + ",1)",
                 data: [75, 100, 275, 125, 225, 200, 100]
-            },{
+            }, {
                 label: "Last Week's Traffic",
                 backgroundColor: "rgba(" + colorMed.rgb + ",1)",
                 data: [45, 112, 234, 134, 125, 231, 98]
@@ -369,3 +369,39 @@ var trafficButtons = {
     monthlyTraffic: new TrafficButton($('#traffic-monthly'), visitorsChart.specificData.monthlyData)
 };
 
+// Autocomplete
+
+function autoComplete(container, dataset) {
+    var haystack = [];
+    for (var i = 0; i < dataset.length; i++) {
+        haystack.push(dataset[i].toLowerCase());
+    }
+    console.log(haystack);
+
+    $(container).keyup(function () {
+        if (container.val().length === 0 ) {
+            $('#searchSuggestions').html( "" );
+        } else {
+            var needle = container.val().toLowerCase();
+            $('#searchSuggestions').show();
+            matchedNames = "";
+            for (var i = 0; i < haystack.length; i++) {
+                if (haystack[i].indexOf(needle) != -1) {
+                    matchedNames += "<p>" + dataset[i] + "</p>";
+                }
+            }
+            $('#searchSuggestions').html( matchedNames );
+        }
+    })
+}
+
+var searchBox = $('#message-container');
+searchBox = searchBox.find("#name");
+
+var namesList = [];
+for (var i = 0; i < users.length; i++) {
+    namesList.push(users[i].name);
+}
+console.log(namesList);
+
+autoComplete(searchBox, namesList);
