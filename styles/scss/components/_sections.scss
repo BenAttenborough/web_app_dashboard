@@ -13,10 +13,13 @@ body {
   padding: 1em;
   background-color: $element-light;
   color: white;
+  position: fixed;
+  z-index: 1;
 }
 
 #nav-bar {
   display: block;
+  margin-top: 5em;
   float: left;
   width: 10%;
   height: 100%;
@@ -24,6 +27,8 @@ body {
   background-color: $element-dark;
   color: white;
   text-align: center;
+  position: fixed;
+  z-index: 1;
   @media screen and (min-width: $desktop) {
     width: 5%;
   }
@@ -32,15 +37,16 @@ body {
 .content-container {
   display: block;
   float: left;
-  height: 100%;
   width: 90%;
-  margin-top: 3em;
+  margin-left: 10%;
+  margin-top: 8em;
   padding: 1em;
   background-color: #FFFFFF;
   border-top: solid 1px #ccc;
   position: relative;
   @media screen and (min-width: $desktop) {
     width: 95%;
+    margin-left: 5%;
   }
 }
 
