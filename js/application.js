@@ -372,27 +372,41 @@ var trafficButtons = {
 // Autocomplete
 
 function autoComplete(container, dataset) {
+    var self = this;
     var haystack = [];
     for (var i = 0; i < dataset.length; i++) {
         haystack.push(dataset[i].toLowerCase());
     }
-    console.log(haystack);
-
     $(container).keyup(function () {
-        if (container.val().length === 0 ) {
-            $('#searchSuggestions').html( "" );
+        if (container.val().length === 0) {
+            $('#searchSuggestions').html("");
         } else {
             var needle = container.val().toLowerCase();
             $('#searchSuggestions').show();
             matchedNames = "";
             for (var i = 0; i < haystack.length; i++) {
                 if (haystack[i].indexOf(needle) != -1) {
-                    matchedNames += "<p>" + dataset[i] + "</p>";
+                    matchedNames += "<p class='matched-name'>" + dataset[i] + "</p>";
                 }
             }
-            $('#searchSuggestions').html( matchedNames );
+            $('#searchSuggestions').html(matchedNames);
+            bindAutoCompleteEventHandler($('#searchSuggestions'), container);
         }
-    })
+    });
+}
+//
+function bindAutoCompleteEventHandler(container, searchElement) {
+    //console.log(container.find('.matched-name'));
+    var names = container.find('.matched-name');
+    console.log(names.length);
+    for (var i =0; i < names.length; i++) {
+        $(names[i]).click(function() {
+            //console.log(this.innerHTML);
+            //console.log(searchElement.val());
+            searchElement.val(this.innerHTML);
+            $('#searchSuggestions').hide();
+        })
+    }
 }
 
 var searchBox = $('#message-container');
