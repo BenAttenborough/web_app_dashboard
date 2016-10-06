@@ -73,7 +73,7 @@ var colorDark = {
 var visitorsChart = {
     ctx: document.getElementById("chart-visitors"),
     type: 'line',
-    data: {
+    defaultData: {
         labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "January"],
         datasets: [
             {
@@ -100,9 +100,31 @@ var visitorsChart = {
             }
         ]
     },
+    specificData: {
+        hourlyData: {
+            labels: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+            data: [0, 1, 1, 0, 0, 0, 0, 1, 2, 5, 6, 2, 3, 0, 0, 4, 4, 2, 4, 1, 0, 2, 2, 1]
+        },
+        dailyData: {
+            labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            data: [60, 83, 72, 56, 90, 73, 75]
+        },
+        weeklyData: {
+            labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+            data: [454, 532, 512, 440]
+        },
+        monthlyData: {
+            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "January"],
+            data: [0, 750, 1250, 1000, 1500, 2000, 1500, 1750, 1250, 1750, 2250, 1750, 2250]
+        }
+    },
     options: {
         scales: {
-            yAxes: [{}]
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
         },
         responsive: true,
         legend: {
@@ -111,11 +133,20 @@ var visitorsChart = {
     }
 };
 
+var hourlyData = {
+    labels: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+    data: [15, 4, 3, 0, 0, 4, 8, 23, 45, 67, 121, 344, 555, 300, 333, 566, 744, 465, 345, 456, 567, 563, 320, 210]
+};
+
 var myVisitorsChart = new Chart(visitorsChart.ctx, {
     type: visitorsChart.type,
-    data: visitorsChart.data,
+    data: visitorsChart.defaultData,
     options: visitorsChart.options
 });
+
+//myVisitorsChart.data.datasets[0].data = hourlyData.data;
+//myVisitorsChart.data.labels = hourlyData.labels;
+//myVisitorsChart.update();
 
 var trafficChart = {
     ctx: document.getElementById("chart-traffic"),
@@ -300,21 +331,36 @@ function displayRecentActivity(count) {
 displayNewMembers(4);
 displayRecentActivity(4);
 
-var TrafficButton = function (element) {
+var TrafficButton = function (element, data) {
     this.element = element;
     this.name = element.attr('id');
+    this.data = data;
+    this.init();
+};
+
+TrafficButton.prototype.updateTrafficChart = function () {
+    for (var button in trafficButtons) {
+        $(trafficButtons[button].element).removeClass('selected');
+    }
+    $(this.element).addClass('selected');
+    myVisitorsChart.data.datasets[0].data = this.data.data;
+    myVisitorsChart.data.labels = this.data.labels;
+    myVisitorsChart.update();
 };
 
 TrafficButton.prototype.addSelectListener = function () {
     self = this;
-    this.element.click( function() {
-        console.log("Element name: " + self.name);
-    } );
+    this.element.click(this.updateTrafficChart.bind(self));
 };
 
 TrafficButton.prototype.init = function () {
     this.addSelectListener();
 };
 
-var dailyTraffic = new TrafficButton( $('#traffic-daily') );
-dailyTraffic.init();
+var trafficButtons = {
+    hourlyTraffic: new TrafficButton($('#traffic-hourly'), visitorsChart.specificData.hourlyData),
+    dailyTraffic: new TrafficButton($('#traffic-daily'), visitorsChart.specificData.dailyData),
+    weeklyTraffic: new TrafficButton($('#traffic-weekly'), visitorsChart.specificData.weeklyData),
+    monthlyTraffic: new TrafficButton($('#traffic-monthly'), visitorsChart.specificData.monthlyData)
+};
+
