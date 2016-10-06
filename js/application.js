@@ -224,6 +224,7 @@ var myMobileChart = new Chart(mobileUsersChart.ctx, {
 var users = [{
     name: "Victoria Chambers",
     email: "vicotoria.chambers80@example.com",
+    pic: "victoriachambers",
     joined: "10/15/15",
     activity: {
         type: "post",
@@ -232,6 +233,7 @@ var users = [{
 }, {
     name: "Dale Byrd",
     email: "dale.byrd52@example.com",
+    pic: "dalebyrd",
     joined: "10/15/15",
     activity: {
         type: "post",
@@ -240,6 +242,7 @@ var users = [{
 }, {
     name: "Dawn Wood",
     email: "dawn.wood16@example.com",
+    pic: "dawnwood",
     joined: "10/15/15",
     activity: {
         type: "post",
@@ -248,6 +251,7 @@ var users = [{
 }, {
     name: "Dan Oliver",
     email: "dan.oliver82@example.com",
+    pic: "danoliver",
     joined: "10/15/15",
     activity: {
         type: "post",
@@ -282,7 +286,7 @@ function displayNewMembers(count) {
     count = count <= users.length ? count : users.length;
     for (var i = 0; i < count; i++) {
         var memberItem = '<div class="members-item clearfix">' +
-            '<div class="member-pic"></div>' +
+            '<div class="member-pic" style="background-image: url(res/img/users/' + users[i].pic + '.jpg)"></div>' +
             '<div class="member-info">' +
             '<p class="member-name">' + users[i].name + '</p>' +
             '<p class="member-email"><a href="mailto:' + users[i].email + '">' + users[i].email + '</a></p>' +
