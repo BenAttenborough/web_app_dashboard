@@ -3,11 +3,11 @@
  */
 
 console.log("JS working");
-var dismissButton = document.getElementById('alert-dismiss');
-dismissButton.addEventListener('click', dismissAlert);
+var dismissButton = $('#alert-dismiss');
+$('#alert-dismiss').click(dismissAlert);
 
 function dismissAlert() {
-    dismissButton.parentNode.style.display = 'none';
+    $('#alert-box').hide();
 }
 
 function notifcationsClickHandlet() {
@@ -469,6 +469,7 @@ function saveSettings() {
     localStorage.setItem('sendEmail', emailCheckbox);
     localStorage.setItem('publicProfile', publicProfileCheckbox);
     localStorage.setItem('timezone', timezoneOption);
+    $('#settingsAlert').show();
 }
 
 function setupLocalStorage() {

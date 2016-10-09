@@ -36,7 +36,7 @@
 </div>
 <div class="content-container clearfix">
     <div class="tab"><h2>Dashboard</h2></div>
-    <div class="alert clearfix">
+    <div id="alert-box" class="alert clearfix">
         <div class="alert-content"><p>Alert: Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem
             Ipsum
             lorem</p>
@@ -194,9 +194,10 @@
                     </div>
                 </div>
 
-                <div class="site-form dropdown">
+                <!--<div class="site-form dropdown">-->
+                <div class="">
                     <label for="timezone">Timezone:</label>
-                    <select id="timezone" name="timezone">
+                    <select id="timezone" class="site-form dropdown" name="timezone">
                         <optgroup label="Timezone">
                             <option value="UTC-0">UTC-0: AZOST, EGST, GMT, UTC, WET</option>
                             <option value="UTC-1">UTC-1: BST, CET, DFT, IST, MET, WAT, WEST</option>
@@ -214,6 +215,10 @@
                 <div class="grid-container">
                     <button type="submit" id="settingsSubmit" class="site-form submit half">SAVE</button>
                     <button type="submit" id="settingsDecline" class="site-form submit half decline">RESET</button>
+                </div>
+
+                <div id="settingsAlert" class="site-form">
+                    Settings saved!
                 </div>
             </form>
         </div>
