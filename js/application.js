@@ -443,8 +443,12 @@ function verifySetting(setting) {
 function getSettings() {
     var sendEmailSetting = verifySetting(localStorage.getItem('sendEmail'));
     var publicProfileSetting = verifySetting(localStorage.getItem('publicProfile'));
+    var timezone = localStorage.getItem('timezone') || 'UTC-0';
+    //var timezoneSetting =
     $('#email-notifications').prop( "checked", sendEmailSetting );
     $('#public-profile').prop( "checked", publicProfileSetting );
+    $('#timezone').val(timezone);
+    console.log(timezone);
 }
 getSettings();
 
@@ -458,9 +462,13 @@ function saveSettings() {
     if ($('#public-profile:checked').val() === '1' ) {
         publicProfileCheckbox = 'true';
     }
+    var timezoneOption = $('#timezone').val();
+
+    console.log(timezoneOption);
 
     localStorage.setItem('sendEmail', emailCheckbox);
     localStorage.setItem('publicProfile', publicProfileCheckbox);
+    localStorage.setItem('timezone', timezoneOption);
 }
 
 function setupLocalStorage() {
@@ -477,4 +485,16 @@ $(submitButton).click(function () {
     event.preventDefault();
     console.log("Settings submitted");
     setupLocalStorage();
+});
+
+$('#settingsDecline').click(function(){
+    event.preventDefault();
+    if (confirm('Really reset settings?')) {
+        localStorage.removeItem('sendEmail');
+        localStorage.removeItem('publicProfile');
+        localStorage.removeItem('timezone');
+        getSettings();
+    } else {
+        // Do nothing!
+    }
 });
