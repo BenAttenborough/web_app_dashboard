@@ -424,6 +424,63 @@ console.log(namesList);
 
 autoComplete(searchBox, namesList);
 
+function verifyMessage() {
+    var message = $('textarea#message').val();
+    return message.length;
+}
+
+function verifyUser() {
+    var user = $('input#name').val();
+    console.log( $('input#name').val() );
+    for (var i = 0; i < namesList.length; i++) {
+        //console.log("nameList: " + namesList[i]);
+        //console.log("user: " + user);
+        if (namesList[i] == user) {
+            console.log("verified");
+            return true;
+        }
+    }
+    return false;
+}
+
+function styleWarning () {
+    $('#messageAlert').css("background-color", "red");
+}
+
+
+function styleVerify () {
+    $('#messageAlert').css("background-color", "#81c98f");
+}
+
+
+
+$('#message-submit').click(function(){
+    event.preventDefault();
+    if (verifyUser() && verifyMessage()) {
+        styleVerify();
+        $('#messageAlert').html("Message has been sent!");
+        $('#messageAlert').show();
+        $('input#name').css("background-color", "#f2f2f2");
+        $('input#name').val("");
+        $('textarea#message').css("background-color", "#f2f2f2");
+        $('textarea#message').val("");
+    } else {
+        if (!verifyUser()) {
+            styleWarning();
+            $('#messageAlert').html("Error: No user found");
+            $('#messageAlert').show();
+            $('input#name').css("background-color", "#ffcccc");
+        }
+        if (!verifyMessage()) {
+            styleWarning();
+            $('#messageAlert').html("Error: Please write a message");
+            $('#messageAlert').show();
+            $('textarea#message').css("background-color", "#ffcccc");
+        }
+    }
+});
+
+
 function supportsLocalStorage() {
     try {
         return 'localStorage' in window && window['localStorage'] !== null;
@@ -495,7 +552,5 @@ $('#settingsDecline').click(function(){
         localStorage.removeItem('publicProfile');
         localStorage.removeItem('timezone');
         getSettings();
-    } else {
-        // Do nothing!
     }
 });
