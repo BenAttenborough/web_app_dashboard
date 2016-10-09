@@ -423,3 +423,58 @@ for (var i = 0; i < users.length; i++) {
 console.log(namesList);
 
 autoComplete(searchBox, namesList);
+
+function supportsLocalStorage() {
+    try {
+        return 'localStorage' in window && window['localStorage'] !== null;
+    } catch(e) {
+        return false;
+    }
+}
+
+function verifySetting(setting) {
+    if (setting === 'true') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function getSettings() {
+    var sendEmailSetting = verifySetting(localStorage.getItem('sendEmail'));
+    var publicProfileSetting = verifySetting(localStorage.getItem('publicProfile'));
+    $('#email-notifications').prop( "checked", sendEmailSetting );
+    $('#public-profile').prop( "checked", publicProfileSetting );
+}
+getSettings();
+
+function saveSettings() {
+    var emailCheckbox = 'false';
+    var publicProfileCheckbox = 'false';
+    //Get value of settings
+    if ($('#email-notifications:checked').val() === '1' ) {
+        emailCheckbox = 'true';
+    }
+    if ($('#public-profile:checked').val() === '1' ) {
+        publicProfileCheckbox = 'true';
+    }
+
+    localStorage.setItem('sendEmail', emailCheckbox);
+    localStorage.setItem('publicProfile', publicProfileCheckbox);
+}
+
+function setupLocalStorage() {
+    if (supportsLocalStorage()) {
+        console.log("Local storage possible");
+        saveSettings();
+    }
+}
+
+
+var submitButton = $('#settingsSubmit');
+
+$(submitButton).click(function () {
+    event.preventDefault();
+    console.log("Settings submitted");
+    setupLocalStorage();
+});
