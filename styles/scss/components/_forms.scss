@@ -13,6 +13,10 @@
   border: solid 2px #ccc;
   border-radius: 1.5em;
   position: relative;
+  float: right;
+  @media screen and (min-width: $tablet) {
+
+  }
 }
 
 .checkbox:before {
