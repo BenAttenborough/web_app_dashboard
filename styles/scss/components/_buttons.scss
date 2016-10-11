@@ -11,3 +11,19 @@ button {
   background-color: $element-med;
   color: #fff;
 }
+
+.buttons-container {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  @media screen and (min-width: $tablet) {
+    justify-content: flex-end;
+    flex-direction: row;
+  }
+}
+
+.buttons-container button {
+  flex-shrink: 0;
+}

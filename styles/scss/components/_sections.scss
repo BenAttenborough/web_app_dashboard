@@ -116,9 +116,12 @@ body {
 }
 
 .section-title {
-  float: left;
+
   p {
     margin-top: 4px;
+  }
+  @media screen and (min-width: $tablet) {
+    float: left;
   }
 }
 
