@@ -1,12 +1,28 @@
 .header-flex {
-  display: flex;
-  justify-content: space-between;
-  //height: 50px;
-  align-items: center;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo {
+  float: left;
 }
 
 .status {
-  //height: 50px;
+  float: right;
+}
+
+#profile .name {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    width: 150px;
+    display: block;
+    margin-top: 0.2em;
+    margin-left: 0.5em;
+    float: right;
+  }
 }
 
 .header-icon {
@@ -18,14 +34,6 @@
 
 .avatar {
   border-radius: 50%;
-}
-
-.name {
-  width: 150px;
-  display: block;
-  margin-top: 0.5em;
-  margin-left: 0.5em;
-  float: right;
 }
 
 #notifications,
