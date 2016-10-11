@@ -48,59 +48,6 @@
   left: 50px;
 }
 
-
-
-
-//.checkbox {
-//  width: 120px;
-//  height: 40px;
-//  background: #cccccc;
-//  margin: 20px 1em;
-//  float: left;
-//  border-radius: 50px;
-//  position: relative;
-//}
-
-//.checkbox:before {
-//  content: 'On';
-//  position: absolute;
-//  top: 12px;
-//  left: 13px;
-//  height: 2px;
-//  color: #26ca28;
-//  font-size: 16px;
-//}
-//
-//.checkbox:after {
-//  content: 'Off';
-//  position: absolute;
-//  top: 12px;
-//  left: 84px;
-//  height: 2px;
-//  color: #111;
-//  font-size: 16px;
-//}
-
-//.checkbox label {
-//  display: block;
-//  width: 52px;
-//  height: 22px;
-//  border-radius: 50px;
-//
-//  transition: all .5s ease;
-//  cursor: pointer;
-//  position: absolute;
-//  top: 9px;
-//  z-index: 1;
-//  left: 12px;
-//  background: #ddd;
-//}
-//
-//.checkbox input[type=checkbox]:checked + label {
-//  left: 60px;
-//  background: #26ca28;
-//}
-
 .checkbox-label {
   width: 50%;
 }
@@ -129,8 +76,11 @@
 }
 
 .half {
-  width: 48%;
-  float: left;
+  width: 100%;
+  @media screen and (min-width: $tablet) {
+    width: 49%;
+    float: left;
+  }
 }
 
 .decline {
@@ -164,4 +114,8 @@
   padding: 1em;
   background-color: $element-med;
   color: #fff;
+}
+
+.form-button-container {
+  width: 100%;
 }

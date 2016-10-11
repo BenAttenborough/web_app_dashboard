@@ -1,6 +1,8 @@
 .chart-container {
   padding: 1em;
-  border-bottom: solid 1px #ccc;
+  @media screen and (min-width: $desktop) {
+    border-bottom: solid 1px #ccc;
+  }
 }
 
 .visitors-container {
@@ -8,7 +10,9 @@
 }
 
 .traffic-container {
-  border-right: solid 1px #ccc;
+  @media screen and (min-width: $desktop) {
+    border-right: solid 1px #ccc;
+  }
 }
 
 .traffic-container,

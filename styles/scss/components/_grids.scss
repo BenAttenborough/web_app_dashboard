@@ -1,11 +1,22 @@
 .grid-container {
   display: flex;
   flex-direction: column;
+  @media screen and (min-width: $tablet) {
+    //flex-direction: row;
+    //justify-content: space-between;
+    display: block;
+  }
   @media screen and (min-width: $desktop) {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
 }
+
+//.grid-container:nth-child(2n + 1) {
+//  margin-right: 1em;
+//  background-color: red;
+//}
 
 .align-horizontal {
   align-items: center;

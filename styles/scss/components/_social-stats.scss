@@ -1,5 +1,8 @@
 .social-container {
   width: 100%;
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
   @media screen and (min-width: $desktop) {
     float: left;
   }
@@ -11,6 +14,11 @@
   border-radius: 5px;
   padding: 1em;
   margin-bottom: 1em;
+  @media screen and (min-width: $tablet) {
+    float: left;
+    width: 46%;
+    margin: 0 2% 1em;
+  }
   @media screen and (min-width: $desktop) {
     float: left;
     width: 30%;
