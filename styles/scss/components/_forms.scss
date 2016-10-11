@@ -142,7 +142,18 @@
   border: solid 1px #ccc;
   border-top: none;
   margin: -2em 0 2em;
-  padding: 1em 1em 0;
+  padding: 2em 1em 1em;
+}
+
+.matched-name {
+  cursor: pointer;
+  padding: 0.5em;
+  margin: 0;
+}
+
+.matched-name:hover {
+  background-color: $element-light;
+  color: #fff;
 }
 
 #settingsAlert,
