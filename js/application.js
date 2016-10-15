@@ -3,7 +3,6 @@
  */
 
 console.log("JS working");
-var dismissButton = $('#alert-dismiss');
 $('#alert-dismiss').click(dismissAlert);
 
 function dismissAlert() {
@@ -191,7 +190,6 @@ var mobileUsersChart = {
         datasets: [
             {
                 label: "Mobile Users",
-                backgroundColor: "rgba(116,119,191,1)",
                 data: [15, 6, 10, 69],
                 backgroundColor: [
                     colorLight.hex,
@@ -345,7 +343,9 @@ var TrafficButton = function (element, data) {
 
 TrafficButton.prototype.updateTrafficChart = function () {
     for (var button in trafficButtons) {
-        $(trafficButtons[button].element).removeClass('selected');
+        if (trafficButtons.hasOwnProperty(button)) {
+            $(trafficButtons[button].element).removeClass('selected');
+        }
     }
     $(this.element).addClass('selected');
     myVisitorsChart.data.datasets[0].data = this.data.data;
@@ -400,7 +400,7 @@ function autoComplete(container, dataset) {
         }
     });
 }
-//
+
 function bindAutoCompleteEventHandler(container, searchElement) {
     //console.log(container.find('.matched-name'));
     var names = container.find('.matched-name');
@@ -411,7 +411,7 @@ function bindAutoCompleteEventHandler(container, searchElement) {
             searchElement.val(this.innerHTML);
             searchElement.css("background-color", colorMed.hex);
             $('#searchSuggestions').hide();
-        })
+        });
     }
 }
 
@@ -504,7 +504,8 @@ $('#message-submit').click(function () {
 
 function supportsLocalStorage() {
     try {
-        return 'localStorage' in window && window['localStorage'] !== null;
+        //return 'localStorage' in window && window['localStorage'] !== null;
+        return window.localStorage && window.localStorage !== null;
     } catch (e) {
         return false;
     }
