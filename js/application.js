@@ -420,7 +420,9 @@ console.log(namesList);
 autoComplete(searchBox, namesList);
 
 $(searchBox).blur(function() {
-    $('#searchSuggestions').hide();
+    if ($('#searchSuggestions').is(":hover") === false){
+        $('#searchSuggestions').hide();
+    }
 });
 
 function verifyMessage() {
