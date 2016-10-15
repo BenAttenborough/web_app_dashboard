@@ -486,18 +486,18 @@ $('#message-submit').click(function () {
         $('textarea#message').css("background-color", "#f2f2f2");
         $('textarea#message').val("");
     } else {
+        var errorMessage = "";
         if (!verifyUser()) {
-            styleWarning();
-            $('#messageAlert').html("Error: No user found");
-            $('#messageAlert').show();
+            errorMessage += "No user found. ";
             $('input#name').css("background-color", "#ffcccc");
         }
         if (!verifyMessage()) {
-            styleWarning();
-            $('#messageAlert').html("Error: Please write a message");
-            $('#messageAlert').show();
+            errorMessage += "Please write a message";
             $('textarea#message').css("background-color", "#ffcccc");
         }
+        styleWarning();
+        $('#messageAlert').html("Please correct the following errors: " + errorMessage);
+        $('#messageAlert').show();
     }
 });
 
