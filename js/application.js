@@ -377,7 +377,13 @@ function autoComplete(container, dataset) {
     for (var i = 0; i < dataset.length; i++) {
         haystack.push(dataset[i].toLowerCase());
     }
-    $(container).keyup(function () {
+    $(container).keyup(function (e) {
+        if (verifyUser()) {
+            $(container).css("background-color", colorMed.hex);
+        } else {
+            $(container).css("background-color", "#f2f2f2");
+        }
+
         if (container.val().length === 0) {
             $('#searchSuggestions').html("");
         } else {
@@ -398,15 +404,29 @@ function autoComplete(container, dataset) {
 function bindAutoCompleteEventHandler(container, searchElement) {
     //console.log(container.find('.matched-name'));
     var names = container.find('.matched-name');
-    for (var i =0; i < names.length; i++) {
-        $(names[i]).click(function() {
+    for (var i = 0; i < names.length; i++) {
+        $(names[i]).click(function () {
             //console.log(this.innerHTML);
             //console.log(searchElement.val());
             searchElement.val(this.innerHTML);
+            searchElement.css("background-color", colorMed.hex);
             $('#searchSuggestions').hide();
         })
     }
 }
+
+function checkMessage(container) {
+    $message = container.val();
+    if ($message.length > 0 ) {
+        $(container).css("background-color", "#f2f2f2");
+    } else {
+        $(container).css("background-color", "#ffcccc");
+    }
+}
+
+$("#message").keyup(function() {
+    checkMessage($("#message"));
+});
 
 var searchBox = $('#message-container');
 searchBox = searchBox.find("#name");
@@ -419,8 +439,9 @@ console.log(namesList);
 
 autoComplete(searchBox, namesList);
 
-$(searchBox).blur(function() {
-    if ($('#searchSuggestions').is(":hover") === false){
+$(searchBox).blur(function () {
+    console.log("Blurred");
+    if ($('#searchSuggestions').is(":hover") === false) {
         $('#searchSuggestions').hide();
     }
 });
@@ -432,7 +453,7 @@ function verifyMessage() {
 
 function verifyUser() {
     var user = $('input#name').val();
-    console.log( $('input#name').val() );
+    console.log($('input#name').val());
     for (var i = 0; i < namesList.length; i++) {
         //console.log("nameList: " + namesList[i]);
         //console.log("user: " + user);
@@ -444,18 +465,17 @@ function verifyUser() {
     return false;
 }
 
-function styleWarning () {
-    $('#messageAlert').css("background-color", "red");
+function styleWarning() {
+    $('#messageAlert').css("background-color", "#ffcccc");
 }
 
 
-function styleVerify () {
+function styleVerify() {
     $('#messageAlert').css("background-color", "#81c98f");
 }
 
 
-
-$('#message-submit').click(function(){
+$('#message-submit').click(function () {
     event.preventDefault();
     if (verifyUser() && verifyMessage()) {
         styleVerify();
@@ -485,7 +505,7 @@ $('#message-submit').click(function(){
 function supportsLocalStorage() {
     try {
         return 'localStorage' in window && window['localStorage'] !== null;
-    } catch(e) {
+    } catch (e) {
         return false;
     }
 }
@@ -503,8 +523,8 @@ function getSettings() {
     var publicProfileSetting = verifySetting(localStorage.getItem('publicProfile'));
     var timezone = localStorage.getItem('timezone') || 'UTC-0';
     //var timezoneSetting =
-    $('#email-notifications').prop( "checked", sendEmailSetting );
-    $('#public-profile').prop( "checked", publicProfileSetting );
+    $('#email-notifications').prop("checked", sendEmailSetting);
+    $('#public-profile').prop("checked", publicProfileSetting);
     $('#timezone').val(timezone);
     console.log(timezone);
 }
@@ -514,10 +534,10 @@ function saveSettings() {
     var emailCheckbox = 'false';
     var publicProfileCheckbox = 'false';
     //Get value of settings
-    if ($('#email-notifications:checked').val() === '1' ) {
+    if ($('#email-notifications:checked').val() === '1') {
         emailCheckbox = 'true';
     }
-    if ($('#public-profile:checked').val() === '1' ) {
+    if ($('#public-profile:checked').val() === '1') {
         publicProfileCheckbox = 'true';
     }
     var timezoneOption = $('#timezone').val();
@@ -546,7 +566,7 @@ $(submitButton).click(function () {
     setupLocalStorage();
 });
 
-$('#settingsDecline').click(function(){
+$('#settingsDecline').click(function () {
     event.preventDefault();
     if (confirm('Really reset settings?')) {
         localStorage.removeItem('sendEmail');
