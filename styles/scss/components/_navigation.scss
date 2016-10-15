@@ -74,3 +74,11 @@
   left: 194px;
   background-color: $element-dark;
 }
+
+#notifications-alert {
+  width: 10px;
+  height: 10px;
+  background-color: $element-med;
+  border-radius: 50%;
+  float: right;
+}

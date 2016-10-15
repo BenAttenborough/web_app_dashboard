@@ -16,12 +16,8 @@ function notifcationsClickHandlet() {
 }
 
 function showNotifications() {
-    console.log("Handler for .click() called.");
+    $('#notifications-alert').hide();
     $('#notifcations-box').toggle();
-
-    //var notificationsBox = '';
-    //notificationsBox = '<div id="notifcations-box"></div>';
-    //notificationButton.append(notificationsBox);
 }
 
 notifcationsClickHandlet();
