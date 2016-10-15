@@ -402,7 +402,6 @@ function autoComplete(container, dataset) {
 function bindAutoCompleteEventHandler(container, searchElement) {
     //console.log(container.find('.matched-name'));
     var names = container.find('.matched-name');
-    console.log(names.length);
     for (var i =0; i < names.length; i++) {
         $(names[i]).click(function() {
             //console.log(this.innerHTML);
@@ -423,6 +422,10 @@ for (var i = 0; i < users.length; i++) {
 console.log(namesList);
 
 autoComplete(searchBox, namesList);
+
+$(searchBox).blur(function() {
+    $('#searchSuggestions').hide();
+});
 
 function verifyMessage() {
     var message = $('textarea#message').val();

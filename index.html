@@ -36,6 +36,18 @@
 </div>
 <div class="content-container clearfix">
     <div class="tab"><h2>Dashboard</h2></div>
+
+
+    <div id="search-container" class="top-search">
+        <form action="index.html" method="POST">
+            <input type="text"
+                   id="search-name"
+                   name="user_name"
+                   class="site-form"
+                   placeholder="Search">
+        </form>
+    </div>
+
     <div id="alert-box" class="alert clearfix">
         <div class="alert-content"><p>Alert: Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem
             Ipsum
@@ -58,7 +70,9 @@
                     <button id="traffic-monthly" class="selected">Monthly</button>
                 </div>
             </div>
-            <canvas id="chart-visitors" width="2" height="1"></canvas>
+            <div class="traffic-chart-container">
+                <canvas id="chart-visitors" width="2" height="1"></canvas>
+            </div>
         </div>
         <div class="traffic-container chart-container">
             <div class="chart-legend">
